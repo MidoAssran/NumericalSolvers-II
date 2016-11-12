@@ -37,7 +37,7 @@ class CholeskiDecomposition(object):
 
         # If the matrix, A, is not square, exit
         if A.shape[0] != A.shape[1]:
-            return None
+            return "Matrix 'A' is not square!"
 
         n = A.shape[1]
 
@@ -50,14 +50,15 @@ class CholeskiDecomposition(object):
 
             # If the matrix A is not positive definite, exit
             if A[j,j] <= 0:
-                return None
+                return "Matrix 'A' is not positive definite!"
 
             A[j,j] = A[j,j] ** 0.5    # Compute the j,j entry of chol(A)
             b[j] /= A[j,j]            # Compute the j entry of forward-sub
 
             for i in range(j+1, n-1):
 
-                if i == self._band:   # Banded matrix optimization
+                # Banded matrix optimization
+                if (band is not None) and (i == self._band):
                     self._band += 1
                     break
 

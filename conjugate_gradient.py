@@ -10,9 +10,12 @@
 import random
 import numpy as np
 from conductor_description import *
-from utils import matrix_dot_vector
+from utils import matrix_dot_matrix, matrix_transpose
 
-DEBUG = True
+import warnings
+warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
+
+DEBUG = False
 
 class ConjugateGradientFiniteDifferencePotentialSolver(object):
 
@@ -33,11 +36,13 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
         np.core.arrayprint._line_width = 200
 
         self._h = h
+
         self._conductor_indices = \
             self.map_coordinates_to_indices((INNER_COORDINATES[0],INNER_COORDINATES[1]))
         self._conductor_index_dimensions = \
             (INNER_HALF_DIMENSIONS[0] / self._h + 1, INNER_HALF_DIMENSIONS[1] / self._h + 1)
 
+        # Create the finite difference system of linear equations
         self._A, self._b = self.create_fdm_equation()
 
         if DEBUG:
@@ -142,9 +147,9 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
         i_c, j_c = self._conductor_indices
         num_x_points, num_y_points = fd_grid.shape
         A = np.empty([num_free_potentials, num_free_potentials])
-        A[:] = 0
+        A[:] = 0.0
         b = np.empty([num_free_potentials])
-        b[:] = 0
+        b[:] = 0.0
 
         for ref_p in range(num_free_potentials):
 
@@ -166,68 +171,69 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
 
             # These might fail at the boundaries
             try:
-                A[ref_p, top_p] = 1
+                A[ref_p, top_p] = 1.0
             except:
                 pass
             try:
                 if bottom_p >= 0:
-                    A[ref_p, bottom_p] = 1
+                    A[ref_p, bottom_p] = 1.0
             except:
                 pass
             try:
-                A[ref_p, right_p] = 1
+                A[ref_p, right_p] = 1.0
             except:
                 pass
             try:
                 if left_p >= 0:
-                    A[ref_p, left_p] = 1
+                    A[ref_p, left_p] = 1.0
             except:
                 pass
 
             # Apply boundary conditions
             if (i == num_x_points - 1):
                 # Apply neumann boundary conditions to A
-                A[ref_p, left_p] += 1
+                A[ref_p, left_p] += 1.0
                 try:
-                    A[ref_p, right_p] = 0
+                    A[ref_p, right_p] = 0.0
                 except:
                     pass
             if (i == 1):
                 # Apply dirichlet boundary conditions to b
                 b[ref_p] -= 0
                 try:
-                    A[ref_p, left_p] = 0
+                    A[ref_p, left_p] = 0.0
                 except:
                     pass
             if (i == i_c - 1) and (j >= j_c):
                 # Apply dirichlet boundary conditions to b
                 b[ref_p] -= CONDUCTOR_POTENTIAL
                 try:
-                    A[ref_p, right_p] = 0
+                    A[ref_p, right_p] = 0.0
                 except:
                     pass
             if (i >= i_c) and (j == j_c - 1):
                 # Apply dirichlet boundary conditions to b
                 b[ref_p] -= CONDUCTOR_POTENTIAL
                 try:
-                    A[ref_p, top_p] = 0
+                    A[ref_p, top_p] = 0.0
                 except:
                     pass
             if (j == num_y_points - 1):
                 # Apply neumann bondary conditions to A
-                A[ref_p, bottom_p] += 1
+                A[ref_p, bottom_p] += 1.0
                 try:
-                    A[ref_p, top_p] = 0
+                    A[ref_p, top_p] = 0.0
                 except:
                     pass
             if (j == 1):
                 # Apply dirichlet boundary conditions to b
-                b[ref_p] -= 0
+                b[ref_p] -= 0.0
                 try:
-                    A[ref_p, bottom_p] = 0
+                    A[ref_p, bottom_p] = 0.0
                 except:
                     pass
 
+        b = b.reshape(b.shape[0], 1)
         return A, b
 
 
@@ -242,19 +248,25 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
                                               )
         return A, b
 
+
     def solve(self):
+        """
+        :rtype: [np.array([float]), np.array([float]), np.array([float])]
+        """
+
         A = self._A
         b = self._b
+        num_eigenvalues = A.shape[1]
 
         # Potentials
         x_h = []
-        x = np.empty([A.shape[1]])
+        x = np.empty([A.shape[1], 1])
         x[:] = 0
         x_h.append(x)
 
         # Residuals
         r_h = []
-        r = b - matrix_dot_vector(A, x)
+        r = b - matrix_dot_matrix(A, x)
         r_h.append(r)
 
         # Search direction
@@ -262,5 +274,28 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
         p = r
         p_h.append(p)
 
+        for k in range(num_eigenvalues):
+
+            # Linear search
+            alpha = (matrix_dot_matrix(matrix_transpose(p), r)
+                    / matrix_dot_matrix(matrix_dot_matrix(matrix_transpose(p), A), p)
+                    )[0,0]
+            x = x + alpha * p
+
+            # Find new search direction
+            r = b - matrix_dot_matrix(A, x)
+            beta =  -1.0 * (matrix_dot_matrix(matrix_dot_matrix(matrix_transpose(p), A), r)
+                    / matrix_dot_matrix(matrix_dot_matrix(matrix_transpose(p), A), p)
+                    )[0,0]
+            p = r + beta * p
+
+            # Log history
+            x_h.append(x)
+            r_h.append(r)
+            p_h.append(p)
+
+        return (x_h, r_h, p_h)
+
 if __name__ == '__main__':
-    cgps = ConjugateGradientFiniteDifferencePotentialSolver(h=0.02)
+    cgfdps = ConjugateGradientFiniteDifferencePotentialSolver(h=0.02)
+    x_h, r_h, p_h = cgfdps.solve()
