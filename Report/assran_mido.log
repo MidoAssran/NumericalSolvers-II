@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 NOV 2016 03:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  13 NOV 2016 04:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -221,27 +221,74 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(./assran_mido.aux)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count103
+\lst@gtempboxa=\box29
+\lst@token=\toks27
+\lst@length=\count104
+\lst@currlwidth=\dimen124
+\lst@column=\count105
+\lst@pos=\count106
+\lst@lostspace=\dimen125
+\lst@width=\dimen126
+\lst@newlines=\count107
+\lst@lineno=\count108
+\lst@maxwidth=\dimen127
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count109
+\lst@skipnumbers=\count110
+\lst@framebox=\box30
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 144.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+(./assran_mido.aux
+
+LaTeX Warning: Label `fig:q3_cg' multiply defined.
+
+)
 \openout1 = `assran_mido.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Try loading font information for U+msa on input line 17.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -282,19 +329,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen124
-\scratchbox=\box29
-\nofMPsegments=\count104
-\nofMParguments=\count105
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen125
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count111
+\scratchdimen=\dimen128
+\scratchbox=\box31
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen129
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks29
 )
-Overfull \hbox (30.0pt too wide) in paragraph at lines 22--23
+\c@lstlisting=\count117
+
+Overfull \hbox (30.0pt too wide) in paragraph at lines 62--63
 [] 
  []
 
@@ -302,59 +351,246 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 22--23
 File: assets/question_1.png Graphic file (type png)
 
 <use assets/question_1.png>
-Package pdftex.def Info: assets/question_1.png used on input line 27.
+Package pdftex.def Info: assets/question_1.png used on input line 67.
 (pdftex.def)             Requested size: 258.00539pt x 124.96008pt.
  [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./as
-sets/question_1.png>] [2]
-Overfull \vbox (4.69409pt too high) has occurred while \output is active []
-
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
+sets/question_1.png>] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
-[4]
-Overfull \vbox (4.69409pt too high) has occurred while \output is active []
-
-
-[5] <assets/question_1_matlab.png, id=38, 362.35374pt x 173.64874pt>
+[4] [5] <assets/question_1_matlab.png, id=38, 362.35374pt x 173.64874pt>
 File: assets/question_1_matlab.png Graphic file (type png)
 
 <use assets/question_1_matlab.png>
-Package pdftex.def Info: assets/question_1_matlab.png used on input line 348.
+Package pdftex.def Info: assets/question_1_matlab.png used on input line 388.
 (pdftex.def)             Requested size: 215.0023pt x 103.03479pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [6 <./assets/question_1_matlab.png>]
-(./assran_mido.aux) ) 
+Overfull \hbox (30.0pt too wide) in paragraph at lines 410--411
+[] 
+ []
+
+<assets/coax.png, id=43, 296.10625pt x 287.0725pt>
+File: assets/coax.png Graphic file (type png)
+ <use assets/coax.png>
+Package pdftex.def Info: assets/coax.png used on input line 416.
+(pdftex.def)             Requested size: 150.50424pt x 145.91443pt.
+
+<assets/q2_mesh.png, id=44, 755.82375pt x 684.5575pt>
+File: assets/q2_mesh.png Graphic file (type png)
+ <use assets/q2_mesh.png>
+Package pdftex.def Info: assets/q2_mesh.png used on input line 422.
+(pdftex.def)             Requested size: 258.00539pt x 233.67612pt.
+
+[7 <./assets/coax.png> <./assets/q2_mesh.png>] [8]
+<assets/q2_potentials.png, id=55, 510.90875pt x 692.5875pt>
+File: assets/q2_potentials.png Graphic file (type png)
+
+<use assets/q2_potentials.png>
+Package pdftex.def Info: assets/q2_potentials.png used on input line 544.
+(pdftex.def)             Requested size: 258.00539pt x 349.74864pt.
+ [9 <./assets/q2_potentials.png>]
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(../capacitance_pul.m
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+) [10]
+<assets/conjugate_gradient.png, id=64, 637.38126pt x 1061.9675pt>
+File: assets/conjugate_gradient.png Graphic file (type png)
+
+<use assets/conjugate_gradient.png>
+Package pdftex.def Info: assets/conjugate_gradient.png used on input line 567.
+(pdftex.def)             Requested size: 258.00539pt x 429.86761pt.
+ [11 <./assets/conjugate_gradient.png>]
+<assets/q3_chol.png, id=69, 643.40375pt x 816.04875pt>
+File: assets/q3_chol.png Graphic file (type png)
+
+<use assets/q3_chol.png>
+Package pdftex.def Info: assets/q3_chol.png used on input line 577.
+(pdftex.def)             Requested size: 301.00192pt x 381.7748pt.
+
+Underfull \vbox (badness 7203) has occurred while \output is active []
+
+ [12 <./assets/q3_chol.png>] <assets/q3_cg.png, id=74, 727.71875pt x 1040.88875
+pt>
+File: assets/q3_cg.png Graphic file (type png)
+
+<use assets/q3_cg.png>
+Package pdftex.def Info: assets/q3_cg.png used on input line 588.
+(pdftex.def)             Requested size: 301.00192pt x 430.54723pt.
+
+Underfull \vbox (badness 5954) has occurred while \output is active []
+
+ [13 <./assets/q3_cg.png>] <assets/q3_chol_II.png, id=80, 731.73375pt x 1060.96
+375pt>
+File: assets/q3_chol_II.png Graphic file (type png)
+
+<use assets/q3_chol_II.png>
+Package pdftex.def Info: assets/q3_chol_II.png used on input line 594.
+(pdftex.def)             Requested size: 301.00192pt x 436.43877pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <./assets/q3_chol_II.png>] <assets/q3_residual.png, id=85, 578.16pt x 433.
+62pt>
+File: assets/q3_residual.png Graphic file (type png)
+
+<use assets/q3_residual.png>
+Package pdftex.def Info: assets/q3_residual.png used on input line 604.
+(pdftex.def)             Requested size: 344.005pt x 258.0038pt.
+
+<assets/cg_potential.png, id=86, 865.2325pt x 1061.9675pt>
+File: assets/cg_potential.png Graphic file (type png)
+
+<use assets/cg_potential.png>
+Package pdftex.def Info: assets/cg_potential.png used on input line 613.
+(pdftex.def)             Requested size: 408.50307pt x 501.3934pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+ [15 <./assets/q3_residual.png>]
+
+LaTeX Warning: Text page 16 contains only floats.
+
+
+Overfull \vbox (1.2585pt too high) has occurred while \output is active []
+
+
+[16 <./assets/cg_potential.png>]
+<assets/chol_potential.png, id=95, 865.2325pt x 1061.9675pt>
+File: assets/chol_potential.png Graphic file (type png)
+
+<use assets/chol_potential.png>
+Package pdftex.def Info: assets/chol_potential.png used on input line 619.
+(pdftex.def)             Requested size: 408.50307pt x 501.3934pt.
+
+Underfull \vbox (badness 3623) has occurred while \output is active []
+
+ [17 <./assets/chol_potential.png>] [18]
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(../experiment.py
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20])
+[21] (../utils.py
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23])
+[24] (../conjugate_gradient.py
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 24.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 24.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32])
+[33] (../choleski.py
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36])
+[37] (../conductor_description.py) [38
+
+
+] (./assran_mido.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3377 strings out of 493014
- 44751 string characters out of 6133351
- 119242 words of memory out of 5000000
- 6711 multiletter control sequences out of 15000+600000
- 11740 words of font info for 45 fonts, out of 8000000 for 9000
+ 5643 strings out of 493014
+ 76521 string characters out of 6133351
+ 223710 words of memory out of 5000000
+ 8908 multiletter control sequences out of 15000+600000
+ 13014 words of font info for 49 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,9n,31p,623b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmcsc10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cmextra/cmex9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on assran_mido.pdf (6 pages, 209385 bytes).
+ 42i,9n,43p,1162b,1792s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on assran_mido.pdf (38 pages, 1307545 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 230 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

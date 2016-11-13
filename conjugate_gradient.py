@@ -135,6 +135,19 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
         """
         return self.fp_map[node_number]
 
+    def map_coordinates_to_node(self, coordiantes):
+        indices = self.map_coordinates_to_indices(coordiantes)
+        return self.map_indices_to_node(indices)
+
+    def map_indices_to_node(self, indices):
+        """
+        :type indices: (int, int)
+        :rtype: int
+        """
+        for i, v in enumerate(self.fp_map):
+            if v == indices:
+                return i
+        return None
 
     def create_fd_equation_matrices(self, fd_grid, num_free_potentials):
         """
@@ -297,5 +310,13 @@ class ConjugateGradientFiniteDifferencePotentialSolver(object):
         return (x_h, r_h, p_h)
 
 if __name__ == '__main__':
+    print("\n", end="\n")
+    print("# --------------- TEST --------------- #", end="\n")
+    print("# -------- Conjugate Gradient -------- #", end="\n")
+    print("# ------------------------------------ #", end="\n\n")
     cgfdps = ConjugateGradientFiniteDifferencePotentialSolver(h=0.02)
-    x_h, r_h, p_h = cgfdps.solve()
+    potential_history, residual_history, search_history = cgfdps.solve()
+    print("A:\n", cgfdps._A, end="\n\n")
+    print("b:\n", cgfdps._b, end="\n\n")
+    print("result = solve(A, b):\n", potential_history[-1], end="\n\n")
+    print("# ------------------------------------ #", end="\n\n")

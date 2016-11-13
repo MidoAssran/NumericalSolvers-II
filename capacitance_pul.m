@@ -2,8 +2,10 @@ clear all;
 
 potentials = SIMPLE2D_M('node.dat', 'tri.dat', 'bc.dat')
 
-
-load S
+S = [1.0000   -0.5000         0   -0.5000
+    -0.5000    1.0000   -0.5000         0
+          0   -0.5000    1.0000   -0.5000
+    -0.5000         0   -0.5000    1.0000];
 
 permittivity = 8.85418782e-12;
 const = 0.5 * permittivity;

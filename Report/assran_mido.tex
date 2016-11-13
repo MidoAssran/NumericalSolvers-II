@@ -9,6 +9,46 @@
 \usepackage{amsmath}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
+%---------------------Listings Package--------------------%
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=flase,         % sets if automatic breaks should only happen at whitespace
+  breaklines=false,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%-----------------------------------------------------------------%
+
+
+%-------------------Landscape Package------------------%
+\usepackage{pdflscape}
+%-----------------------------------------------------------------%
+
 \title{Numerical Methods\\[0.1in]
 	ECSE 543 - Assignment 2}
 \author{Mido Assran - 260505216}
@@ -362,6 +402,249 @@ Carrying out the matrix multiplication we have the following for the global \tex
             \end{bmatrix}
 }
 \end{center}
+
+\pagebreak
+
+\section*{Question 2}
+\vspace*{-0.2in}
+\noindent\rule{\textwidth}{0.4pt}
+
+\subsection*{Part a}
+Using the two-element mesh shown in Figure \ref{fig:q1_mesh} as a building block, a finite element mesh is constructed for one-quarter of the cross-section of the coaxial cable shown in Figure \ref{fig:q2_coax}. The equivalent one-quarter mesh is shown in Figure \ref{fig:q2_mesh}. \textbf{To simplify the node coordinates in subsequent calculations, the x, y coordinates were renormalized to the bottom left corner of Figure \ref{fig:q2_mesh}}.
+
+\begin{figure}[h]
+    \includegraphics[width=0.35\textwidth]{assets/coax.png}
+    \caption{Rectangular coax.}
+    \label{fig:q2_coax}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[width=0.6\textwidth]{assets/q2_mesh.png}
+    \caption{Global ordering of a finite element mesh for one quarter of a coax.}
+    \label{fig:q2_mesh}
+\end{figure}
+
+\begin{table}[t]
+    \scriptsize
+    \begin{tabular}[t]{c c c}
+        	\textit{node.dat} & & \\ \hline
+        1    &   0.04  &  0.00\\
+        2    &   0.06  &  0.00\\
+        3    &   0.08  &  0.00\\
+        4    &   0.10  &  0.00\\
+        5    &   0.00  &  0.02\\
+        6    &   0.02  &  0.02\\
+        7    &  0.04   & 0.02\\
+        8    &   0.06  &  0.02\\
+        9    &   0.08  &  0.02\\
+        10  &   0.10  &  0.02\\
+        11  &    0.00  &   0.04\\
+        12  &    0.02  &   0.04\\
+        13  &    0.04  &   0.04\\
+        14  &    0.06  &  0.04\\
+        15  &    0.08  &  0.04\\
+        16  &    0.10  &  0.04\\
+        17  &    0.00  &  0.06\\
+        18  &    0.02  &  0.06\\
+        19  &    0.04  &  0.06\\
+        20  &    0.06  &  0.06\\
+        21  &    0.08  &  0.06\\
+        22  &    0.10  &  0.06\\
+        23  &    0.00  &  0.08\\
+        24  &    0.02  &  0.08\\
+        25  &    0.04  &  0.08\\
+        26  &    0.06  &  0.08\\
+        27  &    0.08  &  0.08\\
+        28  &    0.10  &  0.08\\
+        29  &    0.00  &  0.10\\
+        30  &    0.02  &  0.10\\
+        31  &    0.04  &  0.10\\
+        32  &    0.06  &  0.10\\
+        33  &    0.08  &  0.10\\
+        34  &    0.10  &  0.10
+    \end{tabular}
+    \hfill
+    \begin{tabular}[t]{c c}
+        	\textit{bc.dat} & \\ \hline
+	5    &   110.0\\
+        6     &   110.0\\
+        7     &   110.0\\
+        4     &   0.0\\
+        10   &    0.0\\
+        16   &    0.0\\
+        22   &    0.0\\
+        28   &    0.0\\
+        34   &    0.0\\
+        33   &    0.0\\
+        32   &    0.0\\
+        31   &   0.0\\
+        30   &   0.0\\
+        29   &   0.0
+    \end{tabular}
+    \hfill
+    \begin{tabular}[t]{c c c c}
+    	\textit{tri.dat} & & & \\ \hline
+        1    &   2   &    7 &0\\
+        2    &   8   &    7 &0\\
+        2    &   3   &    8 &0\\
+        3    &   9   &    8 &0\\
+        3    &   4   &    9 &0\\
+        4    &   10 &    9 &0\\
+        5    &   6   &    11 &0\\
+        6    &   12 &    11 &0\\
+        6    &   7   &    12 &0\\
+        7    &   13 &    12 &0\\
+        7    &   8   &    12 &0\\
+        8    &   14 &    13 &0\\
+        8    &   9   &    14 &0\\
+        9    &   15 &     14 &0\\
+        9    &   10 &     15 &0\\
+        10  &    16&     15 &0\\
+        11  &    12&     17 &0\\
+        12  &    18&     17 &0\\
+        12  &    13&     18 &0\\
+        13  &    19&     18 &0\\
+        13  &    14&     19 &0\\
+        14  &    20&     19 &0\\
+        14  &    15&     20 &0\\
+        15  &    21&     20 &0\\
+        15  &    16&     21 &0\\
+        16  &    22&     21 &0\\
+        17  &    18 &    23 &0\\
+        18  &    24&     23 &0\\
+        18  &    19&     24 &0\\
+        19  &    25&     24 &0\\
+        19  &    20&     25 &0\\
+        20  &    26&     25 &0\\
+        20  &    21&     26 &0\\
+        21  &    27&     26 &0\\
+        21  &    22&     27 &0\\
+        22  &    28&     27 &0\\
+        23  &    24&     29 &0\\
+        24  &    30&     29 &0\\
+        24  &    25&     30 &0\\
+        25  &    30&     31 &0\\
+        25  &    26&     31 &0\\
+        26  &    32&     31 &0\\
+        26  &    27&     32 &0\\
+        27  &    33&     32 &0\\
+        27  &    28&     33 &0\\
+        28  &    34&     33 &0\\        
+    \end{tabular}
+    \caption{SIMPLE2D input consisting of node coordinates, boundary conditions, and finite element vertex definitions from left to right}
+    \label{tb:input}
+\end{table}
+
+The input file used for the SIMPLE2D Matlab program was split up into three files, \textit{node.dat}, \textit{bc.dat}, \textit{tri.dat}, which are shown in Table \ref{tb:input}. The \textit{node.dat} table lists the node numbers (according to the global ordering shown in Figure \ref{fig:q2_mesh}) and their respective x, y coordinates; the \textit{bc.dat} file lists the boundary nodes (according to the global ordering), and their respective potentials in Volts; lastly the \textit{tri.dat} table lists the nodes (according to the global ordering) that make up each triangular finite element with a zero terminated column. The data was split up for convenience of comprehension, however could've just as easily been stacked in a single file.
+
+\subsection*{Part b}
+The electrostatic potential solution was computed using the SIMPLE2D program with the mesh shown in Table \ref{tb:input}. The screenshot from the Matlab output is shown in Figure \ref{fig:q2_potentials} - \textbf{note that the coordinates shown in the Matlab output correspond to the renormalized x, y problem coordinates}. From the output, we deduce that by symmetry of the problem, the potential at point  (0.06, 0.04) is equivalent to the potential at node 19 in Figure \ref{fig:q2_mesh}. \textbf{The potential at (0.06, 0.04) is 41.4710 Volts}.
+
+\begin{figure}[h]
+    \includegraphics[width=0.6\textwidth]{assets/q2_potentials}
+    \caption{SIMPLE2D Matlab output for the quarter-coax finite element mesh with renormalized x, y coordinates.}
+    \label{fig:q2_potentials}
+\end{figure}
+
+\pagebreak
+
+\subsection*{Part c}
+To compute the capacitance per unit length obtained from the solution of the SIMPLE2D program, we start off by finding the energy per unit length contained in a square made up of two triangular finite elements:
+$$ W = \frac{1}{2} \epsilon_{0} U^{T}_{con} S U_{con} $$
+where the global S matrix is that found in \textit{Question 1}, and $U_{con}$ represents the vector of conjoint potentials according to the global ordering. After finding the energy in every micro-grid of the free-node problem domain (\textbf{not including the fixed potential domain}). We then sum up all of those energies, and multiply by 4 to obtain the energy per unit length in the entire free-space of the coax $ W^{(total)} = 4 * \sum_{q} W$. We then use
+$$ W^{(total)} = \frac{1}{2} CV^2 $$
+where C is the capacitance per unit length, and V is the potential difference across the coax (V = 110 Volts - 0 Volts in this case). The Matlab script used to carry out the above procedure is shown in Listing \ref{lstng:capacitance_pul} - again this Matlab script is based on the specific global ordering of Figure \ref{fig:q2_mesh}.
+\lstinputlisting[language=Matlab, label=lstng:capacitance_pul, frame=single, caption=capacitance\_pul.m]{../capacitance_pul.m}
+\boxed{\textbf{The capacitance per unit length is: \quad\quad $5.2627e-11 \quad Farads/m$}}
+
+\pagebreak
+
+\section*{Question 3}
+\vspace*{-0.2in}
+\noindent\rule{\textwidth}{0.4pt}
+The conjugate gradient method implementation provided in Listing \ref{lstng:conjugate_gradient} is used to construct the finite difference equation for a quadrant of the coax, and subsequently solve it. The output for h=0.02 is shown in Figure \ref{fig:q3_cg}. Note that the value for $h$ is inputed by the user in the conjugate gradient program, thereby making it very easy to simply try out the problem with different inter-element spacings.
+\begin{figure}[h!]
+    \includegraphics[width=0.6\textwidth]{assets/conjugate_gradient}
+    \caption{Console output of conjugate gradient solver used to solve the unpreconditioned finite difference equation of the bottom-left quadrant of the coax}
+    \label{fig:q3_cg}
+\end{figure}
+
+\pagebreak
+
+\subsection*{Part a}
+The finite difference matrix is tested using the choleski decomposition program written for Question 1 of Assignment 1 to ensure that it is positive definite. The choleski decomposition implementation is provided in Listing \ref{lstng:choleski} again for convenience. The console output is provided in Figure \ref{fig:q3_chol}. Unfortunately as it is, the matrix is NOT positive definite. To make it positive definite, we could precondition the finite difference system of equations with the transpose of the matrix. In other words instead of solving $Ax = b$, we could solve $HAx = Hb$ where $H=A^T$.
+\begin{figure}[h!]
+    \includegraphics[width=0.7\textwidth]{assets/q3_chol}
+    \caption{Console output of choleski solver used to solve the unpreconditioned finite difference equation of the bottom-left quadrant of the coax}
+    \label{fig:q3_chol}
+\end{figure}
+
+\pagebreak
+
+\subsection*{Part b}
+The modified preconditioned problem is solved using the conjugate gradient method, and the choleski decomposition method. The console outputs are shown in Figures \ref{fig:q3_cg} and \ref{fig:q3_chol_II}.
+
+\begin{figure}[h!]
+    \includegraphics[width=0.7\textwidth]{assets/q3_cg}
+    \caption{Console output of conjugate graident solver used to solve the preconditioned finite difference equation of the bottom-left quadrant of the coax}
+    \label{fig:q3_cg}
+\end{figure}
+\pagebreak
+\begin{figure}[h!]
+    \includegraphics[width=0.7\textwidth]{assets/q3_chol_II}
+    \caption{Console output of choleski solver used to solve the preconditioned finite difference equation of the bottom-left quadrant of the coax}
+    \label{fig:q3_chol_II}
+\end{figure}
+
+\pagebreak
+
+\subsection*{Part c}
+A plot of the 2-norm and the infinity-norm of the residual versus iterations for the conjugate gradient program is shown below in Figure \ref{fig:q3_residual}.
+\begin{figure}[h!]
+   \includegraphics[width=0.8\textwidth]{assets/q3_residual}
+   \caption{Plot of the 2-norm and the infinity-norm of the residual versus iterations for the conjugate gradient program.}
+   \label{fig:q3_residual}
+\end{figure}
+
+\subsection*{Part d}
+\textbf{The potential at (x,y) = (0.06, 0.04) is 40.52601638 Volts using the conjugate gradient method, and 40.52650261 Volts using the choleski decomposition method.} The corresponding console outputs are shown in Figures \ref{fig:cg_potential} and \ref{fig:chol_potential}. These results are very similar to the potential computed in Question 2(b), which as we recall was found to be \textbf{41.4710 Volts}. It is interesting to note that the potentials computed using conjugate gradient and choleski appears to be more accurate than that found using the SIMPLE2D program in Question 2(b). The potentials found also are very similar to the potential found at the same (x,y) location and for the same node spacing computed in Assignment 1 using SOR - which was found to be \textbf{40.5265 Volts} on aggregate spanning over the multiple different values for the parameter $\omega$. This seems to indicate that the methods that use the finite difference method all perform similarly, and perhaps more accurately than the finite element method when the finite elements are distributed as they are in Figure \ref{fig:q2_mesh}.
+
+\begin{figure}[h!]
+   \includegraphics[width=0.95\textwidth]{assets/cg_potential}
+   \caption{Console output computing the potential at (0.06, 0.04) using the conjugate gradient method}
+   \label{fig:cg_potential}
+\end{figure}
+\pagebreak
+\begin{figure}[h!]
+   \includegraphics[width=0.95\textwidth]{assets/chol_potential}
+   \caption{Console output computing the potential at (0.06, 0.04) using the choleski decomposition method}
+   \label{fig:chol_potential}
+\end{figure}
+\pagebreak
+
+\subsection*{Part e}
+To compute the capacitance per unit length of the system from the finite difference solution, one could use a finite element energy equation, where \textbf{the vertices of the finite elements are the nodes in the finite difference mesh}. Since these potentials are known, the corresponding energies per unit length of each free potential finite element can also be determined. The energies of the individual finite elements can be subsequently added, and then one can simply used the capacitance energy equation from Question 2 to determine the capacitance per unit length of the system. Thus we have computed the capacitance per unit length from the finite difference solution.
+
+\begin{landscape}
+    \lstinputlisting[language=Python, label=lstng:experiment, frame=single, caption=experiment.py]{../experiment.py}
+\end{landscape}
+
+\begin{landscape}
+    \lstinputlisting[language=Python, label=lstng:utils, frame=single, caption=utils.py]{../utils.py}
+\end{landscape}
+
+\begin{landscape}
+    \lstinputlisting[language=Python, label=lstng:conjugate_gradient, frame=single, caption=conjugate\_gradient.py]{../conjugate_gradient.py}
+\end{landscape}
+
+\begin{landscape}
+    \lstinputlisting[language=Python, label=lstng:choleski, frame=single, caption=choleski.py]{../choleski.py}
+\end{landscape}
+
+\begin{landscape}
+    \lstinputlisting[language=Python, label=lstng:conductor, frame=single, caption=conductor\_description.py]{../conductor_description.py}
+\end{landscape}
+
 
 
 \end{document}
