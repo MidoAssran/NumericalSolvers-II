@@ -20,6 +20,9 @@ if __name__ == "__main__":
     print("# -------- Conjugate Gradient -------- #", end="\n")
     print("# ------------------------------------ #", end="\n\n")
     cgfdps = ConjugateGradientFiniteDifferencePotentialSolver(h=0.02)
+    A = matrix_dot_matrix(matrix_transpose(cgfdps._A), cgfdps._A)
+    b = matrix_dot_matrix(matrix_transpose(cgfdps._A), cgfdps._b)
+    cgfdps._A = A; cgfdps._b = b
     potential_history, residual_history, search_history = cgfdps.solve()
     print("A:\n", cgfdps._A, end="\n\n")
     print("b:\n", cgfdps._b, end="\n\n")
@@ -29,8 +32,7 @@ if __name__ == "__main__":
     potential = potential_history[-1][node_number]
     print("Potential (0.06, 0.04):\n", potential, end="\n\n")
     print("# ------------------------------------ #", end="\n\n")
-
-
+    
     print("\n", end="\n")
     print("# --------------- TEST --------------- #", end="\n")
     print("# ------ Choleski Decomposition ------ #", end="\n")
